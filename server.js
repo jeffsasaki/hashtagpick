@@ -12,7 +12,12 @@ const client = new Twitter({
 
 app.get('/', (req, res) => {
   client.get('trends/place', { id: 23424977 }, (err, data, response) => {
-    res.json(data);
+    let output = data[0]['trends'];
+    let return_data = [];
+    for (let i = 0; i < output.length; i++) {
+      return_data.push(output[i]['name'].replace(/^#/, '').replace(' ', ''). replace('\'', '').trim());
+    }
+    res.json(return_data);
   });
 });
 
