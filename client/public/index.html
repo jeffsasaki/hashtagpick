@@ -1,38 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Hashtag Pick</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#hamburger"
+          aria-controls="hamburger" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="hamburger">
+          <div class="navbar-nav mr-auto">
+          </div>
+          <form class="form-inline my-2 my-md-0">
+            <a href="#" class="btn btn-lg btn-outline-secondary mx-1">Register</a>
+            <a href="#" class="btn btn-lg btn-primary mx-1">Sign In</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main">
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  </main>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a class="mx-2" href="#">Privacy</a>
+        <a class="mx-2" href="#">Terms of Service</a>
+      </p>
+      <p>Copyright &copy; <span id="currentYear"></span> Hashtag Pick</p>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script>
+    function bgColor() {
+      return 'rgba(' + Math.floor(Math.random() * 256) + ', ' +
+        Math.floor(Math.random() * 256) + ', ' +
+        Math.floor(Math.random() * 256) + ', 0.2)';
+    }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    function copyToClipboard() {
+      var copyBox = document.getElementById('copyBox');
+      copyBox.select();
+      document.execCommand('copy');
+      var tooltipOptions = {
+        content: 'Hashtags Copied!',
+        delay: 2000,
+        placement: 'top',
+        trigger: 'click'
+      };
+      $('#hashtagCopy').tooltip(tooltipOptions);
+    }
+
+    $(document).ready(function () {
+      $('#currentYear').html(new Date().getFullYear());
+      $('.gradient-bg').css('background-image', 'linear-gradient(to bottom right, ' + bgColor() + ', ' + bgColor() + '');
+    });
+  </script>
+</body>
+
 </html>

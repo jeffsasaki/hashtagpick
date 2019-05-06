@@ -9,7 +9,7 @@ const client = new Twitter({
   access_token_secret: key.TOKEN_SECRET
 });
 
-app.get('/', (req, res) => {
+app.get('/trending', (req, res) => {
   client.get('trends/place', { id: 23424977 }, (err, data, response) => {
     let output = data[0]['trends'];
     let return_data = [];
