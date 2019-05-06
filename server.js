@@ -9,17 +9,19 @@ const client = new Twitter({
   access_token_secret: key.TOKEN_SECRET
 });
 
-
 app.get('/', (req, res) => {
   client.get('trends/place', { id: 23424977 }, (err, data, response) => {
     let output = data[0]['trends'];
     let return_data = [];
-    for (let i = 0; i < output.length; i++) {
-      return_data.push(output[i]['name'].replace(/^#/, '').replace(' ', ''). replace('\'', '').trim());
+    for (let i = 0; i < 30; i++) {
+      return_data.push(output[i]['name']
+        .replace(/^#/, '')
+        .replace(/\s/g, '')
+        .replace('\'', ''));
     }
-    res.json(return_data);
+    res.send(return_data);
   });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
