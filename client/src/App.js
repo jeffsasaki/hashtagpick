@@ -1,4 +1,5 @@
 import React from 'react';
+import Trending from './Trending'
 
 function App() {
   return (
@@ -29,16 +30,7 @@ function App() {
               <h2 className='text-center'>Trending Hashtags</h2>
             </div>
           </div>
-          <div className='col-12'>
-            <textarea id='copyBox' className='text-dark w-100' rows='4'>
-              #GameofThrones #Arya #BattleOfWinterfell #NightKing #Bran #Cersei
-              #DemThrones #GOTS8E3 #Ghost #Theon #NOTTODAY #Dothraki
-              #LyannaMormont #Stark #Jorah #JonSnow #NotToday #Melisandre
-              #LadyMormont #GodofDeath #Targaryen #Westeros #Drogon
-              #SansaandTyrion #TheHound #HouseMormont #WhiteWalkers #Rhaegal
-              #JonandDany #AzorAhai
-            </textarea>
-          </div>
+          <Trending />
           <div className='col-12 my-4 text-center'>
             <a
               id='hashtagCopy'

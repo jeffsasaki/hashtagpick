@@ -14,12 +14,14 @@ app.get('/trending', (req, res) => {
     let output = data[0]['trends'];
     let return_data = [];
     for (let i = 0; i < 30; i++) {
-      return_data.push(output[i]['name']
+      return_data.push(
+        '#' + output[i]['name']
         .replace(/^#/, '')
         .replace(/\s/g, '')
-        .replace('\'', ''));
+        .replace('\'', '')
+      );
     }
-    res.send(return_data);
+    res.json(return_data);
   });
 });
 
