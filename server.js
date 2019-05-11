@@ -11,17 +11,20 @@ const client = new Twitter({
 
 app.get('/trending', (req, res) => {
   client.get('trends/place', { id: 23424977 }, (err, data, response) => {
-    let output = data[0]['trends'];
-    let return_data = [];
-    for (let i = 0; i < 30; i++) {
-      return_data.push(
+    const output = data[0]['trends'];
+    let tagset = new Set();
+    let i = 0;
+    while (tagset.size < 30) {
+      tagset.add(
         '#' + output[i]['name']
         .replace(/^#/, '')
         .replace(/\s/g, '')
         .replace('\'', '')
       );
+      i++;
     }
-    res.send(return_data);
+    let return_data = Array.from(tagset);
+    res.json(return_data);
   });
 });
 
