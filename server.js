@@ -21,7 +21,7 @@ app.get('/trending', (req, res) => {
         .replace('\'', '')
       );
     }
-    res.json(return_data);
+    res.send(return_data);
   });
 });
 

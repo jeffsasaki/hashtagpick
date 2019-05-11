@@ -1,5 +1,6 @@
 import React from 'react';
-import Trending from './Trending'
+import Trending from './components/Trending';
+import twittersvg from './img/phone.svg';
 
 function App() {
   return (
@@ -13,10 +14,10 @@ function App() {
             Generate unique hashtags for your social media.
           </p>
           <p>
-            <a href='#' className='btn btn-lg btn-outline-primary my-2'>
+            <a href='#' className='btn btn-lg btn-outline-primary m-1'>
               Learn More
             </a>
-            <a href='#' className='btn btn-lg btn-primary my-2'>
+            <a href='#' className='btn btn-lg btn-primary m-1'>
               Log In
             </a>
           </p>
@@ -60,13 +61,15 @@ function App() {
                 Add your custom hashtags to generate up to 30 unique hashtags to
                 paste on your post.
               </p>
-              <p className='m-5 text-center'>
-                <a href='#' className='btn btn-lg btn-primary'>
-                  Get Started
+              <p className='my-5'>
+                <a href='#' className='btn btn-block btn-primary'>
+                  <strong>Get Started</strong>
                 </a>
               </p>
             </div>
-            <div className='col-md-6'>Image</div>
+            <div className='col-md-6'>
+              <img src={twittersvg} className="w-100" alt="logo"/>
+            </div>
           </div>
         </div>
       </div>
