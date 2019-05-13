@@ -17,13 +17,11 @@ app.get('/trending', (req, res) => {
     while (tagset.size < 30) {
       tagset.add(
         '#' + output[i]['name']
-        .replace(/^#/, '')
-        .replace(/\s/g, '')
-        .replace('\'', '')
+        .replace(/\W/g, '')
       );
       i++;
     }
-    let return_data = Array.from(tagset);
+    const return_data = Array.from(tagset);
     res.json(return_data);
   });
 });

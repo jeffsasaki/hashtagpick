@@ -1,6 +1,6 @@
 import React from 'react';
 import Trending from './components/Trending';
-import twittersvg from './img/phone.svg';
+import phonesvg from './img/phone.svg';
 
 function App() {
   return (
@@ -32,19 +32,6 @@ function App() {
             </div>
           </div>
           <Trending />
-          <div className='col-12 my-4 text-center'>
-            <a
-              id='hashtagCopy'
-              className='btn btn-lg btn-success text-light'
-              onClick='copyToClipboard()'
-              data-content='Hashtags Copied!'
-              data-delay='2000'
-              data-placement='top'
-              data-trigger='click'
-            >
-              Copy Hashtags
-            </a>
-          </div>
         </div>
       </div>
 
@@ -67,8 +54,11 @@ function App() {
                 </a>
               </p>
             </div>
-            <div className='col-md-6'>
-              <img src={twittersvg} className="w-100" alt="logo"/>
+            <div className='col-md-6 text-center'>
+              <img src={phonesvg} className="w-50" alt="logo"/>
+              <p className='small text-muted mt-4'>
+                Icon made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">www.flaticon.com</a>
+              </p>
             </div>
           </div>
         </div>
