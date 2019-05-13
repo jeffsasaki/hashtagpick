@@ -1,6 +1,7 @@
 const express = require('express');
 const Twitter = require('twitter');
 const app = express();
+const PORT = 5000;
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
@@ -36,5 +37,4 @@ app.get('/trending', (req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
