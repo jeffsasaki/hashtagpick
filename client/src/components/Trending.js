@@ -8,7 +8,7 @@ export default class Trending extends Component {
   };
 
   componentDidMount() {
-    axios.get('/trending')
+    axios.get('/api/trending')
       .then(res => {
         const hashtags = res.data;
         this.setState({ hashtags });
