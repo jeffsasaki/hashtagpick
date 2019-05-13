@@ -1,13 +1,23 @@
 const express = require('express');
 const Twitter = require('twitter');
-const key = require('./config/twitter');
 const app = express();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 const client = new Twitter({
-  consumer_key: key.CONSUMER_KEY,
-  consumer_secret: key.CONSUMER_SECRET,
-  access_token_key: key.ACCESS_TOKEN,
-  access_token_secret: key.TOKEN_SECRET
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token_key: process.env.ACCESS_TOKEN,
+  access_token_secret: process.env.TOKEN_SECRET
 });
+
+
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 app.get('/trending', (req, res) => {
   client.get('trends/place', { id: 23424977 }, (err, data, response) => {
@@ -26,5 +36,5 @@ app.get('/trending', (req, res) => {
   });
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
