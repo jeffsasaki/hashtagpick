@@ -9,11 +9,6 @@ p {
 
 .trending {
   border: 1px solid rgba(173, 181, 189, 1);
-  line-height: 3rem;
-}
-
-#copyBox {
-  border: 0;
 }
 
 .centered-flex {
