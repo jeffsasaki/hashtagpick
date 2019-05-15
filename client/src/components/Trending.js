@@ -16,7 +16,7 @@ export default class Trending extends Component {
   }
 
   onSuccess() {
-    toast('Hashtags Copied!', {
+    toast('Hashtags Copied! ✅', {
       position: 'bottom-center',
       autoClose: 2000,
       hideProgressBar: true,
@@ -29,8 +29,7 @@ export default class Trending extends Component {
   componentDidMount() {
     axios.get('/api/trending')
       .then(res => {
-        const hashtags = res.data;
-        this.setState({ hashtags });
+        this.setState({ hashtags: res.data });
       });
   }
 
