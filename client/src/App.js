@@ -14,7 +14,7 @@ function App() {
         </div>
       </section>
 
-      <div className='jumbotron p-5 bg-light'>
+      <div className='jumbotron py-5 px-3 bg-light'>
         <div className='container'>
           <div className='row featurette centered-flex'>
             <div className='col-md-6'>
@@ -28,16 +28,12 @@ function App() {
                 paste on your post.
               </p>
               <p className='my-5'>
-                <a href='#' className='btn btn-block btn-primary'>
-                  <strong>Get Started</strong>
-                </a>
+                This is currently a work in progress.<br/>
+                Please come back later for updates!
               </p>
             </div>
             <div className='col-md-6 text-center'>
-              <img src={phonesvg} className="w-50" alt="logo"/>
-              <p className='small text-muted mt-4'>
-                Icon made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">www.flaticon.com</a>
-              </p>
+              <img src='https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' className="w-100" alt="logo"/>
             </div>
           </div>
         </div>
