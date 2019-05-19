@@ -8,34 +8,13 @@ function App() {
       <section className='jumbotron text-center gradient-bg'>
         <div className='container'>
           <h1 className='jumbotron-heading'>
-            Hashtag Manager for your Social Media
+            Top 30 Trending Hashtags
           </h1>
-          <p className='lead text-dark'>
-            Generate unique hashtags for your social media.
-          </p>
-          <p>
-            <a href='#' className='btn btn-lg btn-outline-primary m-1'>
-              Learn More
-            </a>
-            <a href='#' className='btn btn-lg btn-primary m-1'>
-              Log In
-            </a>
-          </p>
+          <Trending />
         </div>
       </section>
 
-      <div className='py-5 bg-light'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-12 my-5'>
-              <h2 className='text-center'>Trending Hashtags</h2>
-            </div>
-          </div>
-          <Trending />
-        </div>
-      </div>
-
-      <div className='jumbotron p-5 gradient-bg'>
+      <div className='jumbotron p-5 bg-light'>
         <div className='container'>
           <div className='row featurette centered-flex'>
             <div className='col-md-6'>

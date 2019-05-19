@@ -1,5 +1,7 @@
-p {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+body,
+p,
+p.lead {
+  font-family: 'Nunito', sans-serif;
 }
 
 .bg-light {
@@ -17,8 +19,8 @@ p {
 }
 
 section.jumbotron {
-  padding-top: 10rem;
-  padding-bottom: 5rem;
+  padding-top: 7rem;
+  padding-bottom: 2rem;
   margin-bottom: 0;
   background-color: #fff;
 }

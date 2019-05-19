@@ -16,7 +16,7 @@ export default class Trending extends Component {
   }
 
   onSuccess() {
-    toast('Hashtags Copied! ✅', {
+    toast.success('Hashtags Copied!', {
       position: 'bottom-center',
       autoClose: 2000,
       hideProgressBar: true,
@@ -30,13 +30,14 @@ export default class Trending extends Component {
     axios.get('/api/trending')
       .then(res => {
         this.setState({ hashtags: res.data });
-      });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
     return (
-      <div className='col-12'>
-        <div id='copyBox' className='p-2 trending text-dark w-100'>
+      <div>
+        <div id='copyBox' className='p-2 my-4 trending text-dark w-100 text-left bg-light'>
           {this.state.hashtags.join(' ')}
         </div>
         <div className='my-4 text-center'>
