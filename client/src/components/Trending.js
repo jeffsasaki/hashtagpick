@@ -18,7 +18,7 @@ export default class Trending extends Component {
   onSuccess() {
     toast.success('Hashtags Copied!', {
       position: 'bottom-center',
-      autoClose: 2000,
+      autoClose: 1500,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,

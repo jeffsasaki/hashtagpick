@@ -4,6 +4,10 @@ p.lead {
   font-family: 'Nunito', sans-serif;
 }
 
+h1 {
+  font-size: 2.5575rem;
+}
+
 .bg-light {
   border-left: 0;
   border-right: 0;
