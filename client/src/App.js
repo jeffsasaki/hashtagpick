@@ -28,7 +28,6 @@ function App() {
                 paste on your post.
               </p>
               <p className='my-5'>
-                This is currently a work in progress.<br/>
                 Please come back later for updates!
               </p>
             </div>
