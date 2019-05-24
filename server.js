@@ -18,11 +18,10 @@ app.get('/api/trending', (req, res) => {
     const output = data[0]['trends'];
     let tagset = new Set();
     let i = 0;
-    while (tagset.size < 30) {
-      tagset.add(
-        '#' + output[i]['name']
-        .replace(/\W/g, '')
-      );
+    while (tagset.size < 30 && i < 50) {
+      if (output[i]['name'].replace(/\W/g, '').length <= 20) {
+        tagset.add('#' + output[i]['name'].replace(/\W/g, ''));
+      }
       i++;
     }
     const return_data = Array.from(tagset);

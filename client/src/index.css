@@ -4,6 +4,25 @@ p.lead {
   font-family: 'Nunito', sans-serif;
 }
 
+.gradient-bg {
+  height: 100vh;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.flex-center {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+}
+
+.position-ref {
+  position: relative;
+}
+
 h1 {
   font-size: 2.5575rem;
 }
@@ -26,7 +45,6 @@ section.jumbotron {
   padding-top: 7.5rem;
   padding-bottom: 3rem;
   margin-bottom: 0;
-  background-color: #fff;
 }
 
 .jumbotron p:last-child {
@@ -44,8 +62,5 @@ section.jumbotron {
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
-}
-
-footer p {
-  margin-bottom: .25rem;
+  align-self: flex-end;
 }

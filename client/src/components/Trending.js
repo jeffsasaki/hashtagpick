@@ -16,7 +16,7 @@ export default class Trending extends Component {
   }
 
   onSuccess() {
-    toast.success('Hashtags Copied!', {
+    toast.success(this.state.hashtags.length + ' Hashtags Copied!', {
       position: 'bottom-center',
       autoClose: 1500,
       hideProgressBar: true,
@@ -37,6 +37,9 @@ export default class Trending extends Component {
   render() {
     return (
       <div>
+        <h1 className='jumbotron-heading'>
+            Top {this.state.hashtags.length > 0 ? this.state.hashtags.length : ''} Trending Hashtags
+        </h1>
         <div id='copyBox' className='p-2 my-4 trending text-dark w-100 text-left bg-light'>
           {this.state.hashtags.join(' ')}
         </div>
