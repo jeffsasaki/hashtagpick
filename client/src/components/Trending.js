@@ -48,7 +48,6 @@ export default class Trending extends Component {
             onSuccess={this.onSuccess}
             data-clipboard-target='#copyBox'
             className='btn btn-lg btn-success text-light'
-            title='Copied!'
           >
             Copy Hashtags
           </Clipboard>
