@@ -1,5 +1,5 @@
 Hashtag Pick
 -
-Example: https://www.hashtagpick.com
+Example: http://www.hashtagpick.com
 ## Usage
 `npm run dev`
