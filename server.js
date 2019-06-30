@@ -2,7 +2,7 @@ const express = require('express');
 const Twitter = require('twitter');
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;z
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
@@ -19,7 +19,7 @@ app.get('/api/trending', (req, res) => {
     let tagset = new Set();
     let i = 0;
     while (tagset.size < 30 && i < 50) {
-      if (output[i]['name'].replace(/\W/g, '').length <= 20) {
+      if (output[i]['name'].replace(/\W/g, '').length <= 16) {
         tagset.add('#' + output[i]['name'].replace(/\W/g, ''));
       }
       i++;
