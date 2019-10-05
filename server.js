@@ -15,7 +15,7 @@ const client = new Twitter({
 
 app.get('/api/trending', (req, res) => {
   client.get('trends/place', { id: 23424977 }, (err, data, response) => {
-    const output = data[0]['trends'];
+    const output = data[0]['trends'].sort((a, b) => a.length - b.length);
     let tagset = new Set();
     let i = 0;
     while (tagset.size < 30 && i < 50) {
@@ -28,7 +28,7 @@ app.get('/api/trending', (req, res) => {
       }
       i++;
     }
-    const return_data = Array.from(tagset);
+    const return_data = Array.from(tagset).sort((a, b) => a.length - b.length);
     res.json(return_data);
   });
 });
