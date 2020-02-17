@@ -20,11 +20,12 @@ app.get('/api/trending', (req, res) => {
     let i = 0;
     while (tagset.size < 30 && i < 50) {
       if (typeof output[i] === 'undefined') {
+        i++;
         continue;
       }
       process.stdout.write(output[i]['name']);
       
-      if (output[i]['name'].replace(/\W/g, '').length <= 16 && output[i]['name'][0] !== '_') {
+      if (output[i]['name'].replace(/\W/g, '').length <= 16) {
         tagset.add('#' + output[i]['name'].replace(/\W/g, ''));
         process.stdout.write(' ✅\n');
       } else {
