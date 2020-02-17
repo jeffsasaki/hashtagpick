@@ -14,11 +14,11 @@ function gradient() {
 function App() {
   return (
     <main role="main">
-      <div class="flex-center position-ref full-height" style={gradient()}>
+      <div className="flex-center position-ref full-height" style={gradient()}>
         <div className='text-center mt-5 col-lg-8 col-md-12'>
           <Trending />
         </div>
-        <footer class="mx-auto py-1 text-center">
+        <footer className="mx-auto py-1 text-center">
           <p>Copyright &copy; <span id="currentYear">{new Date().getFullYear()}</span> Hashtag Pick</p>
         </footer>
       </div>

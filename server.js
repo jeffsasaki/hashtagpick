@@ -15,27 +15,32 @@ const client = new Twitter({
 
 app.get('/api/trending', (req, res) => {
   client.get('trends/place', { id: 23424977 }, (err, data, response) => {
-    const output = data[0]['trends'].sort((a, b) => a.length - b.length);
+    const trends = data[0]['trends'];
+    const output = [];
     const tagset = new Set();
     let i = 0;
-    while (tagset.size < 30 && i < 50) {
+
+    for(let j = 0; j < trends.length; j++) {
+      output.push(trends[j]['name']);
+    }
+    output.sort((a, b) => a.length - b.length);
+
+    while (tagset.size < 30 && i < output.length) {
       if (typeof output[i] === 'undefined') {
         i++;
         continue;
       }
-      const hashtag = output[i]['name'].replace(/\W/g, '');
-      process.stdout.write(output[i]['name']);
-      
+      const hashtag = output[i].replace(/\W/g, '');
+
       if (hashtag.length > 0 && hashtag[0] !== '_') {
         tagset.add(`#${hashtag}`);
-        process.stdout.write(' ✅\n');
+        process.stdout.write(`✅ ${output[i]}\n`);
       } else {
-        process.stdout.write(' ❌\n');
+        process.stdout.write(`❌ ${output[i]}\n`);
       }
       i++;
     }
-    const returnData = Array.from(tagset).sort((a, b) => a.length - b.length);
-    res.json(returnData);
+    res.json(Array.from(tagset));
   });
 });
 
@@ -46,4 +51,4 @@ if(process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(PORT, () => process.stdout.write(`Server started on port ${PORT}`));
+app.listen(PORT, () => process.stdout.write(`\nServer started on port ${PORT}\n`));
