@@ -23,10 +23,11 @@ app.get('/api/trending', (req, res) => {
         i++;
         continue;
       }
+      const hashtag = output[i]['name'].replace(/\W/g, '');
       process.stdout.write(output[i]['name']);
       
-      if (output[i]['name'].replace(/\W/g, '').length <= 16) {
-        tagset.add('#' + output[i]['name'].replace(/\W/g, ''));
+      if (hashtag.length > 0 && hashtag[0] !== '_') {
+        tagset.add(`#${hashtag}`);
         process.stdout.write(' ✅\n');
       } else {
         process.stdout.write(' ❌\n');
