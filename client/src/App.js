@@ -19,7 +19,8 @@ function App() {
           <Trending />
         </div>
         <footer className="mx-auto py-1 text-center">
-          <p>Copyright &copy; <span id="currentYear">{new Date().getFullYear()}</span> Hashtag Pick</p>
+          <p>Copyright &copy; { new Date().getFullYear() } Hashtag Pick</p>
+          <p>Made by <a className="text-dark" href="https://www.jeffsasaki.com/" target="_blank">Jeff Sasaki</a></p>
         </footer>
       </div>
     </main>
