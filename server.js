@@ -23,7 +23,7 @@ const getGoogleTrends = () => {
       const output = [];
       const parsedData = JSON.parse(data).default.trendingSearchesDays[0].trendingSearches;
       parsedData.forEach(val => output.push(val.title.query));
-      return output;
+      return output.sort((a, b) => a.length - b.length);
     });
 };
 
@@ -41,37 +41,37 @@ const getTwitterTrends = () => {
 
 app.get('/api/trending', (req, res) => { 
   const promises = [
-    getGoogleTrends(),
-    getTwitterTrends()
+    getTwitterTrends(),
+    getGoogleTrends()
   ];
   Promise.all(promises)
     .then(data => {
       const output = data[0].concat(data[1]);
       const tagset = new Set();
-      let i = 0;
 
-      output.sort((a, b) => a.length - b.length);
-      while (tagset.size < 30 && i < output.length) {
+      for (let i = 0; tagset.size < 30 && i < output.length; i++) {
         if (typeof output[i] === 'undefined') {
-          i++;
           continue;
         }
-        const hashtag = output[i].replace(/\W/g, '');
-  
-        if (hashtag.length > 0 && hashtag[0] !== '_') {
-          tagset.add(`#${hashtag}`);
-          process.stdout.write(`✅ ${output[i]}\n`);
+        if (output[i][0] === '#') {
+          tagset.add(output[i].toLowerCase());
         } else {
-          process.stdout.write(`❌ ${output[i]}\n`);
+          const hashtag = output[i].replace(/\W/g, '').toLowerCase();
+          if (hashtag.length > 0 && hashtag[0] !== '_') {
+            tagset.add(`#${hashtag}`);
+          } else {
+            process.stdout.write(`❌ ${output[i]}\n`);
+            continue;
+          }
         }
-        i++;
+        process.stdout.write(`✅ ${output[i]}\n`);
       }
       res.json(Array.from(tagset));
     })
     .catch(err => console.error(err));
 });
 
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
