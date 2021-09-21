@@ -22,6 +22,7 @@ const getGoogleTrends = () => {
     .then(data => {
       const output = [];
       const parsedData = JSON.parse(data).default.trendingSearchesDays[0].trendingSearches;
+      console.log(parsedData);
       parsedData.forEach(val => output.push(val.title.query));
       return output.sort((a, b) => a.length - b.length);
     });
