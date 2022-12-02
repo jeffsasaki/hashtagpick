@@ -3,7 +3,7 @@ const Twitter = require('twitter');
 const googleTrends = require('google-trends-api');
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
