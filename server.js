@@ -43,7 +43,7 @@ const getTwitterTrends = () => {
 app.get('/api/trending', (req, res) => { 
   const promises = [
     getGoogleTrends(),
-    getTwitterTrends()
+    // getTwitterTrends(),
   ];
   Promise
     .all(promises)
