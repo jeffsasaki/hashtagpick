@@ -13,9 +13,9 @@ function gradient() {
 
 function App() {
   return (
-    <main role="main">
-      <div className="flex-center position-ref full-height" style={gradient()}>
-        <div className='text-center mt-5 col-lg-8 col-md-12'>
+    <main role="main" className='w-100 m-auto d-flex full-height' style={gradient()}>
+      <div className="m-auto">
+        <div className='text-center m-auto col-lg-8 col-md-12'>
           <Trending />
         </div>
         <footer className="mx-auto py-1 text-center">

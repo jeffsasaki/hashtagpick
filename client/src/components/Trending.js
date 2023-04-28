@@ -36,7 +36,7 @@ export default class Trending extends Component {
 
   render() {
     return (
-      <div>
+      <div className='trending-container'>
         <h1 className='jumbotron-heading'>
             Top {this.state.hashtags.length > 0 ? this.state.hashtags.length : ''} Trending Hashtags
         </h1>
@@ -53,7 +53,6 @@ export default class Trending extends Component {
           </Clipboard>
         </div>
     </div>
-      
     )
   }
 }

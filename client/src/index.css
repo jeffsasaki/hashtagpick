@@ -4,6 +4,11 @@ p.lead {
   font-family: 'Nunito', sans-serif;
 }
 
+.main {
+  display: flex;
+  align-items: center;
+}
+
 .gradient-bg {
   height: 100vh;
 }

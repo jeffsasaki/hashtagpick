@@ -42,10 +42,11 @@ const getTwitterTrends = () => {
 
 app.get('/api/trending', (req, res) => { 
   const promises = [
-    getTwitterTrends(),
-    getGoogleTrends()
+    getGoogleTrends(),
+    getTwitterTrends()
   ];
-  Promise.all(promises)
+  Promise
+    .all(promises)
     .then(data => {
       const output = data[0].concat(data[1]);
       const tagset = new Set();
