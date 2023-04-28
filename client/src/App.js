@@ -15,7 +15,7 @@ function App() {
   return (
     <main role="main" className='w-100 m-auto d-flex full-height' style={gradient()}>
       <div className="m-auto">
-        <div className='text-center m-auto col-lg-8 col-md-12 px-5'>
+        <div className='text-center m-auto col-lg-8 col-md-12 px-4'>
           <Trending />
         </div>
         <footer className="mx-auto py-1 text-center">
