@@ -16,9 +16,12 @@ const client = new Twitter({
   access_token_secret: process.env.TOKEN_SECRET
 });
 
-const getGoogleTrends = () => {
+const getGoogleTrends = (date) => {
   return googleTrends
-    .dailyTrends({ geo: 'US' })
+    .dailyTrends({
+      trendDate: date,
+      geo: 'US'
+    })
     .then(data => {
       const output = [];
       const parsedData = JSON.parse(data).default.trendingSearchesDays[0].trendingSearches;
@@ -43,6 +46,7 @@ const getTwitterTrends = () => {
 app.get('/api/trending', (req, res) => { 
   const promises = [
     getGoogleTrends(),
+    getGoogleTrends(new Date(new Date().getTime() - (24 * 60 * 60 * 1000)))
     // getTwitterTrends(),
   ];
   Promise
