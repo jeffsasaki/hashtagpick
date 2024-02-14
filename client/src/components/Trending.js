@@ -41,6 +41,9 @@ export default class Trending extends Component {
             Top {this.state.hashtags.length > 0 ? this.state.hashtags.length : ''} Trending Hashtags
         </h1>
         <div id='copyBox' className='p-2 my-4 trending text-dark w-100 text-left bg-light'>
+          .<br/>
+          .<br/>
+          .<br/>
           {this.state.hashtags.join(' ')}
         </div>
         <div className='my-4 text-center'>

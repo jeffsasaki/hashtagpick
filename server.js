@@ -55,7 +55,7 @@ app.get('/api/trending', (req, res) => {
       const output = data[0].concat(data[1]);
       const tagset = new Set();
 
-      for (let i = 0; tagset.size < 30 && i < output.length; i++) {
+      for (let i = 0; tagset.size < 5 && i < output.length; i++) {
         if (typeof output[i] === 'undefined') {
           continue;
         }
